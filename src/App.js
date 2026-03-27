@@ -304,7 +304,7 @@ export default function App() {
       <section id="about">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">01 — About</div><h2 className="s-title">Who I <em>Am</em></h2></div>
+            <div><div className="s-num">01-About</div><h2 className="s-title">Who I <em>Am</em></h2></div>
             <div className="s-line" />
           </div>
           <div className="about-grid">

@@ -11,8 +11,8 @@ const DATA = {
   leetcode: "https://leetcode.com/u/AshwinMali/",
   bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies.",
   education: [
-    { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024–2027", score: "CGPA: 7.84/10" },
-    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021–2024", score: "80.90%" },
+    { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024-2027", score: "CGPA: 7.84/10" },
+    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021-2024", score: "80.90%" },
   ],
   skills: [
     { name: "JavaScript", pct: 88 },

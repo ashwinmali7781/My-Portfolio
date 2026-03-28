@@ -72,7 +72,7 @@ const css = `
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --bg: #06060a; --bg2: #0d0d14; --bg3: #13131e;
-  --accent: #c8f53c; --white: #f5f5f0;
+  --accent: #c8f53c; --white: #f6f5f0;
   --muted: #7a7a8a; --faint: rgba(255,255,255,0.07);
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: 'Syne', sans-serif;

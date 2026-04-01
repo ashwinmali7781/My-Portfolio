@@ -443,7 +443,7 @@ export default function App() {
       {/* FOOTER */}
       <footer>
         <div className="fc">© 2026 Ashwin Mali · All rights reserved.</div>
-        <div className="fc fc-a">Built with React</div>
+        {/* <div className="fc fc-a">Built with React</div> */}
       </footer>
     </>
   );

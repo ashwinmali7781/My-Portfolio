@@ -288,7 +288,7 @@ export default function App() {
       <section className="hero" id="hero">
         <div className="hero-bg" />
         <div className="hero-grid" />
-        <div className="hero-tag">CSC Undergrad · AI-ML · Full Stack</div>
+        <div className="hero-tag">CSE Undergrad · AIML · Full Stack</div>
         <h1 className="hero-name">Ashwin<br /><em>Mali</em></h1>
         <div className="hero-role">Software Developer </div>
         <div className="hero-foot">

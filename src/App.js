@@ -29,7 +29,7 @@ const DATA = {
     {
       title: "GetHired — AI Interview Prep",
       category: "Full-Stack",
-      year: "2024",
+      year: "2026",
       desc: "AI-powered interview prep platform with automated code evaluation, complexity analysis, Supabase auth, and leaderboards. Reduced page load time by 35% and manual evaluation time by 70%.",
       tech: ["React.js", "Vite", "Supabase", "Tailwind CSS", "PostgreSQL"],
       github: "https://github.com/ashwinmali7781/GetHired.git",
@@ -38,7 +38,7 @@ const DATA = {
     {
       title: "PropertyPro — Real Estate Platform",
       category: "Full-Stack",
-      year: "2024",
+      year: "2025",
       desc: "Full-stack platform for listing, browsing, and managing properties. Includes user auth, CRUD operations, image uploads, and RESTful APIs.",
       tech: ["React.js", "Node.js", "Express", "MongoDB"],
       github: "https://github.com/ashwinmali7781/PropertyPro.git",
@@ -47,7 +47,7 @@ const DATA = {
     {
       title: "LogiCart — E-Commerce Platform",
       category: "Full-Stack",
-      year: "2024",
+      year: "2025",
       desc: "Django + React e-commerce app with secure auth, reusable backend modules, proper error handling, and a clean shopping UI.",
       tech: ["Django", "React.js", "SQLite", "Python"],
       github: "https://github.com/ashwinmali7781/LogiCart.git",

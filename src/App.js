@@ -9,10 +9,10 @@ const DATA = {
   github: "https://github.com/ashwinmali7781",
   linkedin: "https://www.linkedin.com/in/ashwin-mali-697348286/",
   leetcode: "https://leetcode.com/u/AshwinMali/",
-  bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies.",
+  bio: "Computer Science undergraduate specialising in AIML. I build scalable full-stack applications with React, Django, and modern backend technologies.",
   education: [
-    { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024-2027", score: "CGPA: 7.84/10" },
-    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021-2024", score: "80.90%" },
+    { degree: "B.Tech — Computer Science (AIML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024-2027", score: "CGPA: 7.91/10" },
+    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021-2024", score: "80.91%" },
   ],
   skills: [
     { name: "JavaScript", pct: 88 },

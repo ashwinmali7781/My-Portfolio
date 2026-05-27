@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+
+const RESUME = "https://drive.google.com/file/d/12tsF3x4N8agrkJCEtYXvXIp83zNIugk3/view?usp=drive_link";
 
 const DATA = {
   name: "Ashwin Mali",
@@ -90,9 +92,17 @@ body { background: var(--bg); color: var(--white); font-family: var(--sans); ove
 }
 .nav-logo { font-family: var(--sans); font-size: .85rem; font-weight: 800; letter-spacing: .1em; color: var(--white); }
 .nav-logo span { color: var(--accent); }
-.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
 .nav-links a { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--muted); text-decoration: none; cursor: pointer; transition: color .2s; }
 .nav-links a:hover { color: var(--accent); }
+.nav-resume {
+  font-family: var(--mono); font-size: .55rem; font-weight: 500;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--accent); text-decoration: none;
+  border: 1px solid rgba(200,245,60,.3); padding: .4rem 1rem;
+  transition: all .2s;
+}
+.nav-resume:hover { background: rgba(200,245,60,.08); border-color: var(--accent); }
 .nav-status { display: flex; align-items: center; gap: .5rem; font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: blink 2s ease-in-out infinite; }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
@@ -121,10 +131,12 @@ body { background: var(--bg); color: var(--white); font-family: var(--sans); ove
 .hero-foot { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
 .hero-bio { font-family: var(--mono); font-size: .82rem; line-height: 1.9; color: rgba(245,245,240,.55); max-width: 440px; }
 .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-p { font-family: var(--sans); font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; background: var(--accent); color: #06060a; padding: .85rem 2.2rem; border: none; cursor: pointer; transition: all .2s; clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); }
+.btn-p { font-family: var(--sans); font-size: .65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; background: var(--accent); color: #06060a; padding: .85rem 2.2rem; border: none; cursor: pointer; transition: all .2s; clip-path: polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px)); text-decoration: none; display: inline-flex; align-items: center; }
 .btn-p:hover { background: #a8d422; transform: translateY(-2px); }
 .btn-g { font-family: var(--sans); font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; background: transparent; color: var(--muted); padding: .85rem 2.2rem; border: 1px solid rgba(255,255,255,.1); cursor: pointer; transition: all .2s; }
 .btn-g:hover { border-color: rgba(255,255,255,.3); color: var(--white); }
+.btn-r { font-family: var(--sans); font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; background: transparent; color: var(--accent); padding: .85rem 2.2rem; border: 1px solid rgba(200,245,60,.3); cursor: pointer; transition: all .2s; text-decoration: none; display: inline-flex; align-items: center; gap: .5rem; }
+.btn-r:hover { background: rgba(200,245,60,.08); border-color: var(--accent); transform: translateY(-2px); }
 
 section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 .inner { max-width: 1100px; margin: 0 auto; }
@@ -280,6 +292,9 @@ export default function App() {
           {["About","Skills","Projects","Contact"].map(s => (
             <li key={s}><a onClick={() => go(s.toLowerCase())}>{s}</a></li>
           ))}
+          <li>
+            <a className="nav-resume" href={RESUME} target="_blank" rel="noreferrer">↓ Resume</a>
+          </li>
         </ul>
         <div className="nav-status"><div className="dot" />Open to opportunities</div>
       </nav>
@@ -290,11 +305,12 @@ export default function App() {
         <div className="hero-grid" />
         <div className="hero-tag">CSE Undergrad · AIML · Full Stack</div>
         <h1 className="hero-name">Ashwin<br /><em>Mali</em></h1>
-        <div className="hero-role">Software Developer </div>
+        <div className="hero-role">Software Developer</div>
         <div className="hero-foot">
           <p className="hero-bio">{DATA.bio}</p>
           <div className="hero-cta">
             <button className="btn-p" onClick={() => go("projects")}>View My Work</button>
+            <a className="btn-r" href={RESUME} target="_blank" rel="noreferrer">↓ Resume</a>
             <button className="btn-g" onClick={() => go("contact")}>Get in Touch</button>
           </div>
         </div>
@@ -435,6 +451,10 @@ export default function App() {
                 <div><div className="c-link-name">LeetCode</div><div className="c-link-url">leetcode.com/u/AshwinMali</div></div>
                 <div className="c-arr">↗</div>
               </a>
+              <a className="c-link" href={RESUME} target="_blank" rel="noreferrer">
+                <div><div className="c-link-name">Resume</div><div className="c-link-url">View / Download PDF</div></div>
+                <div className="c-arr">↗</div>
+              </a>
             </div>
           </div>
         </div>
@@ -443,7 +463,6 @@ export default function App() {
       {/* FOOTER */}
       <footer>
         <div className="fc">© 2026 Ashwin Mali · All rights reserved.</div>
-        {/* <div className="fc fc-a">Built with React</div> */}
       </footer>
     </>
   );

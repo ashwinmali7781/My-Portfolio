@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
-const RESUME = "https://drive.google.com/file/d/12tsF3x4N8agrkJCEtYXvXIp83zNIugk3/view?usp=drive_link";
+const RESUME = "https://drive.google.com/file/d/1kgGRLaiqkqlXRGRCimM6BglLT2yzmDT2/view?usp=sharing";
 
 const DATA = {
   name: "Ashwin Mali",
@@ -11,7 +11,7 @@ const DATA = {
   github: "https://github.com/ashwinmali7781",
   linkedin: "https://www.linkedin.com/in/ashwin-mali-697348286/",
   leetcode: "https://leetcode.com/u/AshwinMali/",
-  bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies — and train deep learning models that run in production.",
+  bio: "Computer Science & Engineering undergraduate specialising in AIML. I build scalable full-stack applications with React, Django, and modern backend technologies — and train deep learning models that run in production.",
   education: [
     { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024–2027", score: "CGPA: 7.91/10" },
     { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021–2024", score: "80.91%" },

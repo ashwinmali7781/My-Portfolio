@@ -11,10 +11,10 @@ const DATA = {
   github: "https://github.com/ashwinmali7781",
   linkedin: "https://www.linkedin.com/in/ashwin-mali-697348286/",
   leetcode: "https://leetcode.com/u/AshwinMali/",
-  bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies.",
+  bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies — and train deep learning models that run in production.",
   education: [
-    { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024-2027", score: "CGPA: 7.84/10" },
-    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021-2024", score: "80.90%" },
+    { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024–2027", score: "CGPA: 7.91/10" },
+    { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021–2024", score: "80.91%" },
   ],
   skills: [
     { name: "JavaScript", pct: 88 },
@@ -24,47 +24,56 @@ const DATA = {
     { name: "Node.js & Express", pct: 72 },
     { name: "MySQL / SQL", pct: 78 },
     { name: "MongoDB", pct: 70 },
-    { name: "HTML & CSS", pct: 85 },
+    { name: "TensorFlow / Keras", pct: 68 },
   ],
-  tools: ["Git", "GitHub", "VS Code", "PyCharm", "Vite", "Tailwind CSS", "Supabase", "REST APIs"],
+  tools: ["Git", "GitHub", "VS Code", "Vite", "Tailwind CSS", "Supabase", "REST APIs", "JWT", "Postman", "Jupyter Notebook"],
   projects: [
     {
-      title: "GetHired — AI Interview Prep",
-      category: "Full-Stack",
+      title: "GetHired — AI Interview Platform",
+      category: "Full-Stack · AI",
       year: "2026",
-      desc: "AI-powered interview prep platform with automated code evaluation, complexity analysis, Supabase auth, and leaderboards. Reduced page load time by 35% and manual evaluation time by 70%.",
-      tech: ["React.js", "Vite", "Supabase", "Tailwind CSS", "PostgreSQL"],
+      desc: "Scalable AI-powered coding interview prep platform with automated code evaluation, algorithmic complexity analysis, leaderboards, and Supabase auth. Reduced page load by 35% and manual evaluation time by 70%.",
+      tech: ["React.js", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS"],
       github: "https://github.com/ashwinmali7781/GetHired.git",
-      live: "https://get-hired-nu.vercel.app/",
+      live: "https://gethired-ashwinmali72-gmailcoms-projects.vercel.app/",
     },
     {
       title: "PropertyPro — Real Estate Platform",
       category: "Full-Stack",
       year: "2025",
-      desc: "Full-stack platform for listing, browsing, and managing properties. Includes user auth, CRUD operations, image uploads, and RESTful APIs.",
-      tech: ["React.js", "Node.js", "Express", "MongoDB"],
+      desc: "Full-stack MERN platform for listing, browsing, and managing properties. JWT-based auth with RBAC cut onboarding friction by 40%. Supports image uploads, advanced filtering, and multi-user concurrency.",
+      tech: ["React.js", "Node.js", "Express", "MongoDB", "REST APIs"],
       github: "https://github.com/ashwinmali7781/PropertyPro.git",
+      live: null,
+    },
+    {
+      title: "Movie Sentiment Analyzer",
+      category: "AI / ML",
+      year: "2025",
+      desc: "RNN-based deep learning model trained on the IMDB dataset for binary sentiment classification. Full NLP pipeline — tokenization, integer encoding, and sequence padding — deployed as a real-time Flask web app with sub-second inference.",
+      tech: ["Python", "TensorFlow", "Keras", "RNN", "NLP", "Flask"],
+      github: "https://github.com/ashwinmali7781/Movie-Sentiment-Analyzer.git",
       live: null,
     },
     {
       title: "LogiCart — E-Commerce Platform",
       category: "Full-Stack",
       year: "2025",
-      desc: "Django + React e-commerce app with secure auth, reusable backend modules, proper error handling, and a clean shopping UI.",
-      tech: ["Django", "React.js", "SQLite", "Python"],
+      desc: "Django + React e-commerce system with inventory management, custom admin dashboard (30+ products across 7 categories), AJAX coupon validation, cart and order tracking, and fault-tolerant client-side state.",
+      tech: ["Django", "React.js", "SQLite", "JWT", "REST APIs"],
       github: "https://github.com/ashwinmali7781/LogiCart.git",
       live: null,
     },
   ],
   achievements: [
     { num: "250+", text: "Algorithmic problems solved on LeetCode, GeeksforGeeks & HackerRank." },
+    { num: "Top 15K", text: "Google Big Code 2026 — ranked top 15,000 out of 100,000+ participants nationwide." },
     { num: "Pres.", text: "Elected President of the Automation & Robotics Department." },
-    { num: "2nd", text: "State-Level Project Competition — Intelligent Combat Robot." },
-    { num: "Adobe", text: "Participated in Adobe India Hackathon, building real-world solutions." },
+    { num: "2nd", text: "State-Level Project Competition — 2nd place for an Intelligent Combat Robot." },
   ],
   certs: [
-    { name: "Google AI Essentials", issuer: "Google", date: "July 2025", desc: "Generative AI, prompt engineering, and responsible AI use." },
-    { name: "Python Essentials", issuer: "Cisco", date: "July 2025", desc: "Data types, control flow, functions, and basic OOP." },
+    { name: "Google AI Essentials", issuer: "Google", date: "July 2025", desc: "Generative AI, prompt engineering, and responsible AI use.", verify: "https://coursera.org/verify/L1RPLKLS6JT1" },
+    { name: "Python Essentials", issuer: "Cisco Networking Academy", date: "July 2025", desc: "Data types, control flow, functions, and basic OOP.", verify: "https://www.credly.com/badges/2e11521f-8efc-4fba-82fe-c1cbb37d156a" },
   ],
 };
 
@@ -177,10 +186,9 @@ section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 .tool:hover { border-color: rgba(200,245,60,.4); color: var(--accent); }
 
 .proj-list { display: flex; flex-direction: column; }
-.proj-row { display: grid; grid-template-columns: 80px 1fr 1.5rem; align-items: start; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,.04); cursor: pointer; text-decoration: none; color: inherit; transition: background .2s; }
+.proj-row { display: grid; grid-template-columns: 80px 1fr 1.5rem; align-items: start; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,.04); }
 .proj-row:first-child { border-top: 1px solid rgba(255,255,255,.04); }
 .proj-row:hover .proj-t { color: var(--accent); }
-.proj-row:hover .arr { opacity: 1; transform: translate(3px,-3px); color: var(--accent); }
 .p-meta { display: flex; flex-direction: column; gap: .35rem; padding-top: .25rem; }
 .p-yr { font-family: var(--mono); font-size: .58rem; color: var(--muted); }
 .p-cat { font-family: var(--mono); font-size: .52rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.2); }
@@ -188,7 +196,6 @@ section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 .proj-d { font-family: var(--mono); font-size: .72rem; line-height: 1.85; color: var(--muted); max-width: 580px; margin-bottom: .9rem; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
 .tag { font-family: var(--mono); font-size: .5rem; letter-spacing: .12em; text-transform: uppercase; padding: .22rem .65rem; background: rgba(200,245,60,.07); border: 1px solid rgba(200,245,60,.15); color: rgba(200,245,60,.7); }
-.arr { font-size: 1rem; color: rgba(255,255,255,.15); opacity: 0; transform: translateX(-6px); transition: all .22s; padding-top: .3rem; }
 .proj-actions { display: flex; gap: .6rem; margin-top: .9rem; }
 .proj-btn { font-family: var(--mono); font-size: .52rem; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .85rem; text-decoration: none; transition: all .2s; display: inline-flex; align-items: center; gap: .4rem; }
 .proj-btn-gh { border: 1px solid rgba(255,255,255,.12); color: var(--muted); }
@@ -203,7 +210,6 @@ section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 .ach-item:hover::after { opacity: 1; }
 .ach-val { font-family: var(--serif); font-size: 2rem; font-style: italic; color: var(--accent); opacity: .4; line-height: 1; margin-bottom: .75rem; }
 .ach-text { font-family: var(--mono); font-size: .72rem; line-height: 1.8; color: var(--muted); }
-.ach-text strong { color: var(--white); font-weight: 500; }
 
 .cert-list { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,.05); margin-top: 3rem; }
 .cert-item { background: var(--bg2); padding: 1.75rem 2rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; transition: background .2s; }
@@ -212,7 +218,9 @@ section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 .cert-desc { font-family: var(--mono); font-size: .62rem; color: var(--muted); line-height: 1.7; }
 .cert-right { text-align: right; flex-shrink: 0; }
 .cert-issuer { font-family: var(--mono); font-size: .55rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: .2rem; }
-.cert-date { font-family: var(--mono); font-size: .5rem; color: rgba(122,122,138,.5); }
+.cert-date { font-family: var(--mono); font-size: .5rem; color: rgba(122,122,138,.5); margin-bottom: .5rem; }
+.cert-verify { font-family: var(--mono); font-size: .5rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(200,245,60,.6); text-decoration: none; border: 1px solid rgba(200,245,60,.2); padding: .2rem .6rem; transition: all .2s; }
+.cert-verify:hover { background: rgba(200,245,60,.08); color: var(--accent); border-color: var(--accent); }
 
 .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
 .contact-big { font-family: var(--serif); font-size: clamp(2rem,5vw,3.8rem); font-weight: 400; letter-spacing: -1.5px; color: var(--white); line-height: 1.1; margin-bottom: 1.5rem; }
@@ -231,7 +239,6 @@ section { padding: 7rem 3.5rem; border-top: 1px solid rgba(255,255,255,.04); }
 
 footer { padding: 2rem 3.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,.04); }
 .fc { font-family: var(--mono); font-size: .55rem; letter-spacing: .1em; color: rgba(255,255,255,.2); }
-.fc-a { color: var(--accent); opacity: .6; }
 
 @media(max-width:768px){
   .nav { padding: 1rem 1.5rem; }
@@ -240,8 +247,7 @@ footer { padding: 2rem 3.5rem; display: flex; justify-content: space-between; al
   section { padding: 5rem 1.5rem; }
   .about-grid, .skills-grid, .ach-grid, .contact-grid { grid-template-columns: 1fr; }
   .proj-row { grid-template-columns: 1fr; gap: 1rem; }
-  .arr { display: none; }
-  footer { flex-direction: column; gap: .5rem; }
+  footer { flex-direction: column; gap: .5rem; text-align: center; }
 }
 `;
 
@@ -289,7 +295,7 @@ export default function App() {
       <nav className="nav">
         <div className="nav-logo">Ashwin<span>.</span></div>
         <ul className="nav-links">
-          {["About","Skills","Projects","Contact"].map(s => (
+          {["About","Skills","Projects","Achievements","Contact"].map(s => (
             <li key={s}><a onClick={() => go(s.toLowerCase())}>{s}</a></li>
           ))}
           <li>
@@ -320,13 +326,13 @@ export default function App() {
       <section id="about">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">01-About</div><h2 className="s-title">Who I <em>Am</em></h2></div>
+            <div><div className="s-num">About</div><h2 className="s-title">Who I <em>Am</em></h2></div>
             <div className="s-line" />
           </div>
           <div className="about-grid">
             <div className="copy">
-              <p>I'm <strong>Ashwin Mali</strong>, a B.Tech student specialising in <strong>Computer Science (AI-ML)</strong>. I blend strong algorithmic foundations with hands-on full-stack development.</p>
-              <p>I've solved <strong>250+ problems</strong> on competitive coding platforms, led initiatives as <strong>President of the Automation &amp; Robotics Dept.</strong>, and shipped real projects used by real people.</p>
+              <p>I'm <strong>Ashwin Mali</strong>, a B.Tech student specialising in <strong>Computer Science (AI-ML)</strong>. I blend strong algorithmic foundations with hands-on full-stack development and deep learning.</p>
+              <p>I've solved <strong>250+ DSA problems</strong>, ranked <strong>top 15,000 in Google Big Code 2026</strong>, led teams as <strong>President of the Automation & Robotics Dept.</strong>, and shipped production projects used by real people.</p>
               <p>📍 {DATA.location} &nbsp;·&nbsp; 📞 <strong>{DATA.phone}</strong></p>
             </div>
             <div>
@@ -341,7 +347,7 @@ export default function App() {
                 ))}
               </div>
               <div className="stats-row">
-                {[["250+","Problems Solved"],["3+","Projects Shipped"],["2nd","State Competition"],["AI-ML","Specialisation"]].map(([v,l]) => (
+                {[["250+","Problems Solved"],["4","Projects Shipped"],["Top 15K","Google Big Code"],["AI-ML","Specialisation"]].map(([v,l]) => (
                   <div className="stat-box" key={l}>
                     <div className="stat-val">{v}</div>
                     <div className="stat-lbl">{l}</div>
@@ -357,7 +363,7 @@ export default function App() {
       <section id="skills">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">02 — Skills</div><h2 className="s-title">Technical <em>Stack</em></h2></div>
+            <div><div className="s-num">Skills</div><h2 className="s-title">Technical <em>Stack</em></h2></div>
             <div className="s-line" />
           </div>
           <SkillBars />
@@ -368,7 +374,7 @@ export default function App() {
       <section id="projects">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">03 — Projects</div><h2 className="s-title">Selected <em>Work</em></h2></div>
+            <div><div className="s-num">Projects</div><h2 className="s-title">Selected <em>Work</em></h2></div>
             <div className="s-line" />
           </div>
           <div className="proj-list">
@@ -397,7 +403,7 @@ export default function App() {
       <section id="achievements">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">04 — Achievements</div><h2 className="s-title">Beyond the <em>Code</em></h2></div>
+            <div><div className="s-num">Achievements</div><h2 className="s-title">Beyond the <em>Code</em></h2></div>
             <div className="s-line" />
           </div>
           <div className="ach-grid">
@@ -418,6 +424,7 @@ export default function App() {
                 <div className="cert-right">
                   <div className="cert-issuer">{c.issuer}</div>
                   <div className="cert-date">{c.date}</div>
+                  {c.verify && <a className="cert-verify" href={c.verify} target="_blank" rel="noreferrer">↗ Verify</a>}
                 </div>
               </div>
             ))}
@@ -429,7 +436,7 @@ export default function App() {
       <section id="contact">
         <div className="inner">
           <div className="s-head">
-            <div><div className="s-num">05 — Contact</div><h2 className="s-title">Let's <em>Connect</em></h2></div>
+            <div><div className="s-num">Contact</div><h2 className="s-title">Let's <em>Connect</em></h2></div>
             <div className="s-line" />
           </div>
           <div className="contact-grid">
@@ -463,6 +470,7 @@ export default function App() {
       {/* FOOTER */}
       <footer>
         <div className="fc">© 2026 Ashwin Mali · All rights reserved.</div>
+        <div className="fc">Built with React · Deployed on Vercel</div>
       </footer>
     </>
   );

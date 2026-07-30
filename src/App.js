@@ -863,21 +863,61 @@ export default function App() {
         <div className="container">
           <div className="s-eyebrow fade-in">GitHub</div>
           <h2 className="s-title fade-in" style={{marginBottom:"2.5rem"}}>Activity & <em>Stats</em></h2>
-          <div className="github-grid fade-in">
-            <div className="github-card">
-              <img src="https://github-readme-stats.vercel.app/api?username=ashwinmali7781&show_icons=true&theme=github_dark&hide_border=true&count_private=true&title_color=60A5FA&icon_color=3B82F6&text_color=94A3B8&bg_color=111827" alt="GitHub Stats" loading="lazy" />
+
+          {/* Stat cards — always visible, no external image dependency */}
+          <div className="gh-cards fade-in" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1px",background:"var(--border)",borderRadius:"12px",overflow:"hidden",marginBottom:"1.5rem"}}>
+            {[
+              { val:"4+", label:"Repositories", icon:"📁" },
+              { val:"250+", label:"DSA Problems", icon:"⚡" },
+              { val:"2026", label:"Active Since", icon:"📅" },
+              { val:"Top 15K", label:"Google Big Code", icon:"🏆" },
+            ].map(s => (
+              <div key={s.label} style={{background:"var(--surface)",padding:"1.5rem",textAlign:"center",transition:"background .2s"}}
+                onMouseEnter={e=>e.currentTarget.style.background="var(--card)"}
+                onMouseLeave={e=>e.currentTarget.style.background="var(--surface)"}>
+                <div style={{fontSize:"1.4rem",marginBottom:".4rem"}}>{s.icon}</div>
+                <div style={{fontFamily:"var(--display)",fontSize:"1.5rem",fontWeight:"700",color:"var(--white)",letterSpacing:"-.03em",lineHeight:"1",marginBottom:".3rem"}}>{s.val}</div>
+                <div style={{fontFamily:"var(--mono)",fontSize:".6rem",color:"var(--txt2)",letterSpacing:".1em",textTransform:"uppercase"}}>{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* iframes — load the SVG stats as pages, bypasses CORS */}
+          <div className="github-grid fade-in fd1">
+            <div className="github-card" style={{height:"195px",overflow:"hidden"}}>
+              <iframe
+                src="https://github-readme-stats.vercel.app/api?username=ashwinmali7781&show_icons=true&theme=github_dark&hide_border=true&count_private=true&title_color=60A5FA&icon_color=3B82F6&text_color=94A3B8&bg_color=111827"
+                width="100%" height="195" style={{border:"none",display:"block",borderRadius:"12px"}}
+                title="GitHub Stats" loading="lazy" />
             </div>
-            <div className="github-card">
-              <img src="https://github-readme-streak-stats.herokuapp.com/?user=ashwinmali7781&theme=github-dark-blue&hide_border=true&background=111827&ring=2563EB&fire=3B82F6&currStreakLabel=60A5FA&sideLabels=94A3B8" alt="GitHub Streak" loading="lazy" />
+            <div className="github-card" style={{height:"195px",overflow:"hidden"}}>
+              <iframe
+                src="https://github-readme-streak-stats.herokuapp.com/?user=ashwinmali7781&theme=github-dark-blue&hide_border=true&background=111827&ring=2563EB&fire=3B82F6&currStreakLabel=60A5FA&sideLabels=94A3B8&stroke=1E3A8A"
+                width="100%" height="195" style={{border:"none",display:"block",borderRadius:"12px"}}
+                title="GitHub Streak" loading="lazy" />
             </div>
           </div>
-          <div className="github-grid fade-in fd1">
-            <div className="github-card">
-              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ashwinmali7781&layout=compact&theme=github_dark&hide_border=true&bg_color=111827&title_color=60A5FA&text_color=94A3B8&langs_count=8" alt="Top Languages" loading="lazy" />
+
+          <div className="github-grid fade-in fd2" style={{marginTop:"1.25rem"}}>
+            <div className="github-card" style={{height:"165px",overflow:"hidden"}}>
+              <iframe
+                src="https://github-readme-stats.vercel.app/api/top-langs/?username=ashwinmali7781&layout=compact&theme=github_dark&hide_border=true&bg_color=111827&title_color=60A5FA&text_color=94A3B8&langs_count=8"
+                width="100%" height="165" style={{border:"none",display:"block",borderRadius:"12px"}}
+                title="Top Languages" loading="lazy" />
             </div>
-            <div className="github-card" style={{padding:"1rem"}}>
-              <img src="https://github-readme-activity-graph.vercel.app/graph?username=ashwinmali7781&bg_color=111827&color=60A5FA&line=2563EB&point=3B82F6&hide_border=true&area=true" alt="Activity Graph" loading="lazy" style={{width:"100%",borderRadius:"8px"}} />
+            <div className="github-card" style={{height:"165px",overflow:"hidden"}}>
+              <iframe
+                src="https://github-readme-activity-graph.vercel.app/graph?username=ashwinmali7781&bg_color=111827&color=60A5FA&line=2563EB&point=3B82F6&hide_border=true&area=true&area_color=1E3A8A"
+                width="100%" height="165" style={{border:"none",display:"block",borderRadius:"12px"}}
+                title="Activity Graph" loading="lazy" />
             </div>
+          </div>
+
+          {/* GitHub profile link */}
+          <div className="fade-in fd3" style={{textAlign:"center",marginTop:"2rem"}}>
+            <a className="btn-outline" href={DATA.github} target="_blank" rel="noreferrer" style={{fontSize:".78rem",display:"inline-flex"}}>
+              View GitHub Profile ↗
+            </a>
           </div>
         </div>
       </section>

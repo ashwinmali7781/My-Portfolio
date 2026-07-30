@@ -77,7 +77,7 @@ const DATA = {
       desc:"Django + React e-commerce system with inventory management, custom admin dashboard (30+ products across 7 categories), AJAX coupon validation, cart and order tracking, and fault-tolerant client-side state.",
       problem:"E-commerce systems need fault-tolerant state and flexible inventory management.",
       solution:"Django REST + React with AJAX coupon validation and fault-tolerant cart/order tracking.",
-      metrics:["30+ products","7 categories","AJAX coupons","Agile delivery"],
+      metrics:["45+ products","7 categories","AJAX coupons","Agile delivery"],
       tech:["Django","React.js","SQLite","JWT","REST APIs"],
       github:"https://github.com/ashwinmali7781/LogiCart.git",
       live:null,

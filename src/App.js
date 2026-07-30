@@ -867,7 +867,7 @@ export default function App() {
           {/* Stat cards — always visible, no external image dependency */}
           <div className="gh-cards fade-in" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1px",background:"var(--border)",borderRadius:"12px",overflow:"hidden",marginBottom:"1.5rem"}}>
             {[
-              { val:"4+", label:"Repositories", icon:"📁" },
+              { val:"30+", label:"Repositories", icon:"📁" },
               { val:"250+", label:"DSA Problems", icon:"⚡" },
               { val:"2026", label:"Active Since", icon:"📅" },
               { val:"Top 15K", label:"Google Big Code", icon:"🏆" },

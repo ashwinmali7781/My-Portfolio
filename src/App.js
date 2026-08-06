@@ -1,6 +1,6 @@
 // import { useRef, useState, useEffect, useCallback } from "react";
 
-// const RESUME = "https://drive.google.com/file/d/12tsF3x4N8agrkJCEtYXvXIp83zNIugk3/view?usp=drive_link";
+// const RESUME = "https://drive.google.com/file/d/1kgGRLaiqkqlXRGRCimM6BglLT2yzmDT2/view?usp=sharing";
 
 // const DATA = {
 //   name: "Ashwin Mali",
@@ -1025,7 +1025,7 @@ import { useRef, useState, useEffect } from "react";
 /* ─────────────────────────────────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────────────────────────────────── */
-const RESUME = "https://drive.google.com/file/d/12tsF3x4N8agrkJCEtYXvXIp83zNIugk3/view?usp=drive_link";
+const RESUME = "https://drive.google.com/file/d/1kgGRLaiqkqlXRGRCimM6BglLT2yzmDT2/view?usp=sharing";
 
 const DATA = {
   name: "Ashwin Mali",

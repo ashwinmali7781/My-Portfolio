@@ -1020,6 +1020,782 @@
 
 
 
+// import { useRef, useState, useEffect } from "react";
+
+// /* ─────────────────────────────────────────────────────────────────────────
+//    DATA
+// ───────────────────────────────────────────────────────────────────────── */
+// const RESUME = "https://drive.google.com/file/d/1kgGRLaiqkqlXRGRCimM6BglLT2yzmDT2/view?usp=sharing";
+
+// const DATA = {
+//   name: "Ashwin Mali",
+//   handle: "ashwinmali7781",
+//   title: "Software Developer",
+//   location: "Kolhapur, Maharashtra, IN",
+//   phone: "+91 7058731964",
+//   email: "ashwinmali72@gmail.com",
+//   github: "https://github.com/ashwinmali7781",
+//   linkedin: "https://www.linkedin.com/in/ashwin-mali-697348286/",
+//   leetcode: "https://leetcode.com/u/AshwinMali/",
+//   portfolio: "https://my-portfolio-54ju.onrender.com/",
+//   bio: "Computer Science undergraduate specialising in AI-ML. I build scalable full-stack applications with React, Django, and modern backend technologies — and train deep learning models that run in production.",
+//   learning: ["System Design", "TypeScript", "Next.js", "Docker", "AWS"],
+//   education: [
+//     { degree: "B.Tech — Computer Science (AI-ML)", school: "D.Y. Patil College of Engineering & Technology", year: "2024–2027", score: "CGPA 7.91/10" },
+//     { degree: "Diploma — Automation & Robotics", school: "Sharad Institute of Technology, Polytechnic", year: "2021–2024", score: "80.91%" },
+//   ],
+//   deps: [
+//     { name: "javascript", version: "0.88.0", note: "ES2023, async patterns" },
+//     { name: "python", version: "0.82.0", note: "typing, OOP, scripting" },
+//     { name: "react", version: "0.85.0", note: "hooks, state, perf" },
+//     { name: "django", version: "0.78.0", note: "REST, ORM, auth" },
+//     { name: "node-express", version: "0.72.0", note: "APIs, middleware" },
+//     { name: "sql", version: "0.78.0", note: "MySQL, schema design" },
+//     { name: "mongodb", version: "0.70.0", note: "NoSQL, aggregation" },
+//     { name: "tensorflow-keras", version: "0.68.0", note: "RNN, NLP pipelines" },
+//   ],
+//   stack: {
+//     languages: ["Python", "C++", "JavaScript", "Java", "SQL", "TypeScript"],
+//     frontend: ["React", "Next.js", "Tailwind", "Vite", "HTML5", "CSS3"],
+//     backend: ["Django", "Node.js", "Express", "Flask", "REST APIs", "JWT"],
+//     data: ["PostgreSQL", "MongoDB", "MySQL", "SQLite", "Supabase", "Firebase"],
+//     "ai / ml": ["TensorFlow", "Keras", "PyTorch", "Scikit-learn", "OpenCV", "NLP"],
+//     tooling: ["Git", "Docker", "AWS", "Postman", "VS Code", "Linux"],
+//   },
+//   projects: [
+//     {
+//       id: "a1c4e9f", title: "GetHired", subtitle: "AI interview platform",
+//       date: "2026-04", branch: "main", status: "deployed",
+//       desc: "Scalable AI-powered coding interview prep platform with automated code evaluation, algorithmic complexity analysis, leaderboards, and Supabase auth.",
+//       problem: "Manual code review in interviews is slow and biased.",
+//       solution: "Built an AI evaluation engine with complexity analysis, cutting manual review time by 70%.",
+//       insertions: 35, deletions: 70, files: 6,
+//       tech: ["React.js", "Vite", "Supabase", "PostgreSQL", "Tailwind CSS"],
+//       github: "https://github.com/ashwinmali7781/GetHired.git",
+//       live: "https://gethired-ashwinmali72-gmailcoms-projects.vercel.app/",
+//     },
+//     {
+//       id: "7fbd221", title: "PropertyPro", subtitle: "Real-estate marketplace",
+//       date: "2025-11", branch: "main", status: "deployed",
+//       desc: "Full-stack MERN platform for listing, browsing, and managing properties, with JWT-based auth and role-based access control.",
+//       problem: "Property platforms lacked secure role-based access and support for concurrent users.",
+//       solution: "Shipped a JWT + RBAC auth flow and concurrent session handling, cutting onboarding friction by 40%.",
+//       insertions: 40, deletions: 12, files: 9,
+//       tech: ["React.js", "Node.js", "Express", "MongoDB", "REST APIs"],
+//       github: "https://github.com/ashwinmali7781/PropertyPro.git",
+//       live: null,
+//     },
+//     {
+//       id: "e02b8a4", title: "Sentiment Analyzer", subtitle: "Deep-learning NLP",
+//       date: "2025-06", branch: "main", status: "archived",
+//       desc: "RNN-based deep learning model trained on the IMDB dataset for binary sentiment classification, deployed as a real-time Flask web app.",
+//       problem: "Real-time sentiment analysis needs a complete, production-shaped ML pipeline, not a notebook demo.",
+//       solution: "Trained an RNN on IMDB, built the full NLP pipeline — tokenize, encode, pad — and served it via Flask.",
+//       insertions: 28, deletions: 4, files: 5,
+//       tech: ["Python", "TensorFlow", "Keras", "RNN", "NLP", "Flask"],
+//       github: "https://github.com/ashwinmali7781/Movie-Sentiment-Analyzer.git",
+//       live: null,
+//     },
+//     {
+//       id: "c99a103", title: "LogiCart", subtitle: "E-commerce platform",
+//       date: "2025-03", branch: "main", status: "archived",
+//       desc: "Django + React e-commerce system with inventory management, a custom admin dashboard, AJAX coupon validation, and order tracking.",
+//       problem: "E-commerce systems need fault-tolerant client state and flexible inventory management.",
+//       solution: "Built a Django REST + React stack with AJAX coupon validation and fault-tolerant cart/order tracking.",
+//       insertions: 45, deletions: 7, files: 11,
+//       tech: ["Django", "React.js", "SQLite", "JWT", "REST APIs"],
+//       github: "https://github.com/ashwinmali7781/LogiCart.git",
+//       live: null,
+//     },
+//   ],
+//   checks: [
+//     { name: "dsa-problems", detail: "250+ solved across LeetCode, GFG, HackerRank", pass: true },
+//     { name: "google-big-code-2026", detail: "Ranked top 15,000 of 100,000+ nationwide", pass: true },
+//     { name: "dept-leadership", detail: "President, Automation & Robotics Department", pass: true },
+//     { name: "state-robotics-comp", detail: "2nd place — Intelligent Combat Robot", pass: true },
+//   ],
+//   certs: [
+//     { name: "Google AI Essentials", issuer: "Google", date: "Jul 2025", desc: "Generative AI, prompt engineering, and responsible AI use.", verify: "https://coursera.org/verify/L1RPLKLS6JT1" },
+//     { name: "Python Essentials", issuer: "Cisco Networking Academy", date: "Jul 2025", desc: "Data types, control flow, functions, and basic OOP.", verify: "https://www.credly.com/badges/2e11521f-8efc-4fba-82fe-c1cbb37d156a" },
+//   ],
+//   profiles: [
+//     { name: "LeetCode", handle: "AshwinMali", stat: "250+ solved", href: "https://leetcode.com/u/AshwinMali/" },
+//     { name: "GeeksforGeeks", handle: "ashwinm6dqi", stat: "Active contributor", href: "https://www.geeksforgeeks.org/user/ashwinm6dqi/" },
+//     { name: "HackerRank", handle: "ashwinmali72", stat: "Problem solver", href: "https://www.hackerrank.com/profile/ashwinmali72" },
+//     { name: "Codolio", handle: "Ashwin_Mali_7", stat: "Full profile", href: "https://codolio.com/profile/Ashwin_Mali_7" },
+//   ],
+// };
+
+// const NAV = [
+//   { id: "about", label: "about.md" },
+//   { id: "skills", label: "requirements.txt" },
+//   { id: "projects", label: "projects/" },
+//   { id: "log", label: "log.json" },
+//   { id: "contact", label: "contact.sh" },
+// ];
+
+// /* ─────────────────────────────────────────────────────────────────────────
+//    STYLES
+// ───────────────────────────────────────────────────────────────────────── */
+// const css = `
+// @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+// *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+// :root{
+//   --paper:#F2F2EC;
+//   --paper2:#EAEAE1;
+//   --surface:#FFFFFF;
+//   --ink:#1B1D18;
+//   --muted:#6E7266;
+//   --faint:#A9AC9E;
+//   --line: rgba(27,29,24,.14);
+//   --line-soft: rgba(27,29,24,.08);
+//   --accent:#FF5B23;
+//   --accent-ink:#7A2600;
+//   --cobalt:#2454FF;
+//   --good:#2E7D4F;
+//   --code-bg:#16180F;
+//   --code-ink:#DCE0C8;
+//   --code-line: rgba(220,224,200,.14);
+//   --display:'Fraunces',serif;
+//   --body:'IBM Plex Sans',sans-serif;
+//   --mono:'IBM Plex Mono',monospace;
+// }
+// html{scroll-behavior:smooth;}
+// body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;}
+// ::selection{background:var(--accent);color:#fff;}
+// ::-webkit-scrollbar{width:9px;}
+// ::-webkit-scrollbar-track{background:var(--paper);}
+// ::-webkit-scrollbar-thumb{background:var(--faint);border-radius:0;border:2px solid var(--paper);}
+// a{color:inherit;}
+// button{font-family:inherit;}
+
+// .wrap{max-width:1040px;margin:0 auto;padding:0 2.5rem;}
+
+// /* ── status bar (top) ── */
+// .topbar{position:fixed;top:0;left:0;right:0;z-index:400;background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:.68rem;display:flex;align-items:center;justify-content:space-between;padding:.4rem 1.25rem;letter-spacing:.02em;}
+// .topbar-left,.topbar-right{display:flex;align-items:center;gap:1.1rem;}
+// .tb-dot{width:6px;height:6px;border-radius:50%;background:var(--good);display:inline-block;margin-right:.4rem;animation:blink 2.4s ease-in-out infinite;}
+// @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+// .topbar span.dim{color:var(--faint);}
+
+// /* ── nav ── */
+// .nav{position:fixed;top:26px;left:0;right:0;z-index:390;background:rgba(242,242,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+// .nav-inner{max-width:1040px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:stretch;overflow-x:auto;}
+// .nav-tab{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:none;border:none;border-right:1px solid var(--line-soft);padding:.85rem 1.1rem;cursor:pointer;white-space:nowrap;transition:color .15s,background .15s;position:relative;}
+// .nav-tab:hover{color:var(--ink);background:var(--paper2);}
+// .nav-tab::before{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--accent);transform:scaleX(0);transition:transform .18s;}
+// .nav-tab:hover::before{transform:scaleX(1);}
+// .nav-spacer{flex:1;}
+// .nav-cta{font-family:var(--mono);font-size:.72rem;color:var(--ink);background:none;border:none;border-left:1px solid var(--line-soft);padding:.85rem 1.1rem;cursor:pointer;white-space:nowrap;text-decoration:none;display:flex;align-items:center;gap:.4rem;}
+// .nav-cta:hover{color:var(--accent);}
+
+// /* ── hero / terminal ── */
+// .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 0 4rem;}
+// .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;}
+// .eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);background:rgba(255,91,35,.12);display:inline-flex;align-items:center;gap:.5rem;padding:.3rem .7rem;margin-bottom:1.5rem;}
+// .eyebrow::before{content:'●';color:var(--accent);font-size:.55rem;}
+// .hero-title{font-family:var(--display);font-weight:600;font-size:clamp(2.6rem,5.4vw,4.2rem);line-height:1.02;letter-spacing:-.015em;margin-bottom:1.1rem;}
+// .hero-title em{font-style:italic;font-weight:500;color:var(--accent-ink);}
+// .hero-desc{font-size:1rem;color:var(--muted);max-width:460px;margin-bottom:2rem;line-height:1.75;}
+// .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2rem;}
+// .btn{font-family:var(--mono);font-size:.78rem;padding:.7rem 1.3rem;border:1px solid var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .15s;background:none;color:var(--ink);}
+// .btn-fill{background:var(--ink);color:var(--paper);}
+// .btn-fill:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+// .btn:not(.btn-fill):hover{background:var(--ink);color:var(--paper);}
+// .hero-socials{display:flex;gap:1.1rem;font-family:var(--mono);font-size:.72rem;}
+// .hero-socials a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:1px;}
+// .hero-socials a:hover{color:var(--accent-ink);border-color:var(--accent);}
+
+// .term{background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:.78rem;border-radius:2px;overflow:hidden;box-shadow:0 24px 60px rgba(27,29,24,.22);}
+// .term-bar{display:flex;align-items:center;gap:.4rem;padding:.65rem .9rem;border-bottom:1px solid var(--code-line);}
+// .term-dot{width:9px;height:9px;border-radius:50%;background:rgba(220,224,200,.25);}
+// .term-title{margin-left:.5rem;color:var(--faint);font-size:.68rem;}
+// .term-body{padding:1.15rem 1.1rem 1.4rem;min-height:230px;}
+// .term-line{white-space:pre-wrap;word-break:break-word;margin-bottom:.15rem;}
+// .term-prompt{color:var(--accent);}
+// .term-out{color:var(--code-ink);}
+// .term-key{color:#8FB7FF;}
+// .term-cursor{display:inline-block;width:7px;height:14px;background:var(--code-ink);vertical-align:text-bottom;margin-left:2px;animation:cblink 1s step-end infinite;}
+// @keyframes cblink{0%,100%{opacity:1}50%{opacity:0}}
+
+// /* ── sections ── */
+// .section{padding:6rem 0;border-top:1px solid var(--line);}
+// .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2.75rem;flex-wrap:wrap;}
+// .sec-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
+// .sec-title{font-family:var(--display);font-weight:600;font-size:clamp(1.7rem,3.4vw,2.5rem);letter-spacing:-.01em;}
+// .sec-title em{font-style:italic;font-weight:500;color:var(--accent-ink);}
+
+// /* about */
+// .about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;}
+// .about-copy p{font-size:.94rem;color:var(--muted);line-height:1.85;margin-bottom:1.05rem;}
+// .about-copy strong{color:var(--ink);font-weight:600;}
+// .edu-list{display:flex;flex-direction:column;}
+// .edu-row{border-bottom:1px solid var(--line);padding:1.1rem 0;}
+// .edu-row:first-child{padding-top:0;}
+// .edu-deg{font-weight:600;font-size:.88rem;margin-bottom:.25rem;}
+// .edu-school{font-size:.78rem;color:var(--muted);margin-bottom:.5rem;}
+// .edu-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.66rem;color:var(--faint);}
+// .edu-meta .score{color:var(--accent-ink);}
+// .learning{margin-top:1.5rem;}
+// .learning-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:.6rem;}
+// .pill-row{display:flex;flex-wrap:wrap;gap:.4rem;}
+// .pill{font-family:var(--mono);font-size:.68rem;border:1px solid var(--line);padding:.28rem .65rem;color:var(--muted);}
+
+// /* checks (achievements) */
+// .checks{display:flex;flex-direction:column;border:1px solid var(--line);margin-top:2.5rem;}
+// .check-row{display:grid;grid-template-columns:28px 1fr auto;gap:.9rem;align-items:center;padding:.85rem 1.1rem;border-bottom:1px solid var(--line);font-family:var(--mono);}
+// .check-row:last-child{border-bottom:none;}
+// .check-mark{color:var(--good);font-weight:600;}
+// .check-name{font-size:.78rem;color:var(--ink);}
+// .check-detail{font-size:.7rem;color:var(--muted);text-align:right;}
+
+// /* skills / requirements.txt */
+// .reqs{border:1px solid var(--line);background:var(--surface);}
+// .req-head{font-family:var(--mono);font-size:.68rem;color:var(--faint);padding:.7rem 1.1rem;border-bottom:1px solid var(--line);background:var(--paper2);}
+// .req-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1rem;padding:.75rem 1.1rem;border-bottom:1px solid var(--line-soft);font-family:var(--mono);font-size:.78rem;}
+// .req-row:last-child{border-bottom:none;}
+// .req-name{color:var(--ink);}
+// .req-name .op{color:var(--faint);margin:0 .3rem;}
+// .req-version{color:var(--accent-ink);}
+// .req-note{display:block;font-family:var(--body);font-size:.72rem;color:var(--faint);margin-top:.15rem;}
+
+// .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:2.5rem;}
+// .stack-cell{background:var(--surface);padding:1.3rem 1.4rem;}
+// .stack-cat{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.8rem;}
+// .stack-tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+// .stack-tag{font-family:var(--mono);font-size:.68rem;color:var(--muted);}
+// .stack-tag:not(:last-child)::after{content:',';color:var(--faint);}
+
+// /* projects / git log */
+// .log-entry{border:1px solid var(--line);background:var(--surface);margin-bottom:1rem;cursor:pointer;transition:border-color .15s;}
+// .log-entry:hover{border-color:var(--accent-ink);}
+// .log-entry.open{border-color:var(--ink);}
+// .log-head{display:grid;grid-template-columns:auto 1fr auto auto;gap:1rem;align-items:center;padding:1rem 1.25rem;}
+// .log-hash{font-family:var(--mono);font-size:.72rem;color:var(--faint);}
+// .log-titles{display:flex;flex-direction:column;gap:.15rem;}
+// .log-title{font-family:var(--display);font-weight:600;font-size:1.15rem;letter-spacing:-.005em;}
+// .log-subtitle{font-family:var(--mono);font-size:.68rem;color:var(--muted);}
+// .log-status{font-family:var(--mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;padding:.2rem .55rem;border:1px solid var(--line);color:var(--muted);white-space:nowrap;}
+// .log-status.deployed{color:var(--good);border-color:var(--good);}
+// .log-diff{font-family:var(--mono);font-size:.72rem;white-space:nowrap;}
+// .log-diff .ins{color:var(--good);}
+// .log-diff .del{color:#B23A2E;}
+// .log-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+// .log-entry.open .log-body{max-height:520px;}
+// .log-body-in{padding:0 1.25rem 1.4rem;border-top:1px solid var(--line-soft);}
+// .log-desc{font-size:.86rem;color:var(--muted);line-height:1.75;margin:1rem 0;}
+// .log-case{display:grid;grid-template-columns:90px 1fr;gap:.5rem .9rem;font-size:.8rem;margin-bottom:1.1rem;}
+// .log-case dt{font-family:var(--mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);}
+// .log-case dd{color:var(--muted);line-height:1.65;}
+// .log-tech{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.1rem;}
+// .log-tech span{font-family:var(--mono);font-size:.65rem;border:1px solid var(--line);padding:.18rem .5rem;color:var(--muted);}
+// .log-links{display:flex;gap:.6rem;}
+// .log-links a{font-family:var(--mono);font-size:.7rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:1px;}
+// .log-links a:hover{color:var(--accent-ink);border-color:var(--accent);}
+// .log-toggle{font-family:var(--mono);font-size:.65rem;color:var(--faint);}
+
+// /* activity graph */
+// .graph-wrap{margin-top:3rem;}
+// .graph-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:1rem;}
+// .graph{display:grid;grid-template-columns:repeat(26,1fr);gap:3px;}
+// .graph i{display:block;padding-top:100%;background:var(--line-soft);}
+// .graph i.l1{background:rgba(255,91,35,.28);}
+// .graph i.l2{background:rgba(255,91,35,.52);}
+// .graph i.l3{background:rgba(255,91,35,.76);}
+// .graph i.l4{background:var(--accent);}
+// .graph-legend{display:flex;align-items:center;gap:.4rem;margin-top:.9rem;font-family:var(--mono);font-size:.62rem;color:var(--faint);}
+// .graph-legend .sw{width:9px;height:9px;display:inline-block;}
+
+// /* profiles + certs */
+// .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+// .profile-row{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:background .15s;}
+// .profile-row:hover{background:var(--surface);border-color:var(--accent-ink);}
+// .profile-name{font-weight:600;font-size:.86rem;margin-bottom:.2rem;}
+// .profile-handle{font-family:var(--mono);font-size:.68rem;color:var(--faint);}
+// .profile-stat{font-family:var(--mono);font-size:.68rem;color:var(--accent-ink);}
+
+// .cert-row{border:1px solid var(--line);padding:1.2rem 1.3rem;display:flex;justify-content:space-between;gap:1.2rem;align-items:flex-start;}
+// .cert-name{font-weight:600;font-size:.9rem;margin-bottom:.35rem;}
+// .cert-desc{font-size:.78rem;color:var(--muted);line-height:1.65;}
+// .cert-meta{text-align:right;flex-shrink:0;}
+// .cert-issuer{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:.15rem;}
+// .cert-date{font-family:var(--mono);font-size:.62rem;color:var(--faint);margin-bottom:.55rem;}
+// .cert-verify{font-family:var(--mono);font-size:.65rem;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--ink);}
+// .cert-verify:hover{color:var(--accent-ink);border-color:var(--accent);}
+
+// /* contact */
+// .contact-term{max-width:640px;}
+// .contact-lead{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4vw,2.9rem);letter-spacing:-.01em;line-height:1.08;margin-bottom:1.3rem;}
+// .contact-lead em{font-style:italic;font-weight:500;color:var(--accent-ink);}
+// .contact-body{font-size:.92rem;color:var(--muted);max-width:480px;line-height:1.8;margin-bottom:2rem;}
+// .contact-links{display:flex;flex-direction:column;border:1px solid var(--line);margin-top:1.5rem;}
+// .c-row{display:flex;justify-content:space-between;align-items:center;padding:.95rem 1.2rem;text-decoration:none;color:inherit;border-bottom:1px solid var(--line);transition:padding-left .15s,background .15s;}
+// .c-row:last-child{border-bottom:none;}
+// .c-row:hover{padding-left:1.6rem;background:var(--surface);}
+// .c-row-name{font-weight:600;font-size:.84rem;}
+// .c-row-url{font-family:var(--mono);font-size:.66rem;color:var(--faint);}
+// .c-arrow{font-family:var(--mono);color:var(--faint);}
+// .c-row:hover .c-arrow{color:var(--accent-ink);}
+
+// /* footer */
+// footer{border-top:1px solid var(--line);padding:1.4rem 0 2.2rem;}
+// .footer-inner{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.66rem;color:var(--faint);flex-wrap:wrap;gap:.5rem;}
+// .footer-inner a{color:var(--accent-ink);text-decoration:none;}
+
+// /* reveal */
+// .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+// .reveal.show{opacity:1;transform:none;}
+
+// /* scroll-top */
+// .totop{position:fixed;bottom:1.4rem;right:1.4rem;z-index:200;width:38px;height:38px;background:var(--ink);color:var(--paper);border:none;cursor:pointer;font-family:var(--mono);font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s,background .2s;}
+// .totop.show{opacity:1;pointer-events:all;}
+// .totop:hover{background:var(--accent);}
+
+// @media(max-width:860px){
+//   .hero-grid{grid-template-columns:1fr;}
+//   .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+//   .stack-grid{grid-template-columns:1fr 1fr;}
+//   .two-col{grid-template-columns:1fr;}
+//   .log-head{grid-template-columns:auto 1fr;row-gap:.5rem;}
+//   .log-status{grid-column:2;justify-self:start;}
+//   .log-diff{display:none;}
+//   .wrap{padding:0 1.3rem;}
+//   .nav-inner{padding:0 1.3rem;}
+// }
+// @media(max-width:520px){
+//   .stack-grid{grid-template-columns:1fr;}
+//   .cert-row{flex-direction:column;}
+//   .cert-meta{text-align:left;}
+// }
+// `;
+
+// /* ─────────────────────────────────────────────────────────────────────────
+//    HOOKS
+// ───────────────────────────────────────────────────────────────────────── */
+// function useReveal() {
+//   useEffect(() => {
+//     const els = document.querySelectorAll(".reveal");
+//     const io = new IntersectionObserver(
+//       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add("show")),
+//       { threshold: 0.12 }
+//     );
+//     els.forEach((el) => io.observe(el));
+//     return () => io.disconnect();
+//   }, []);
+// }
+
+// function useScrollTop() {
+//   const [show, setShow] = useState(false);
+//   useEffect(() => {
+//     const fn = () => setShow(window.scrollY > 500);
+//     window.addEventListener("scroll", fn, { passive: true });
+//     return () => window.removeEventListener("scroll", fn);
+//   }, []);
+//   return show;
+// }
+
+// function useClock() {
+//   const [t, setT] = useState(() => new Date());
+//   useEffect(() => {
+//     const id = setInterval(() => setT(new Date()), 1000);
+//     return () => clearInterval(id);
+//   }, []);
+//   return t;
+// }
+
+// /* Typewriter that reveals a fixed set of terminal lines, one char at a time */
+// function useBoot(lines) {
+//   const [out, setOut] = useState([]);
+//   const [lineIdx, setLineIdx] = useState(0);
+//   const [charIdx, setCharIdx] = useState(0);
+//   const [done, setDone] = useState(false);
+
+//   useEffect(() => {
+//     if (lineIdx >= lines.length) { setDone(true); return; }
+//     const current = lines[lineIdx];
+//     if (charIdx <= current.text.length) {
+//       const speed = current.type === "prompt" ? 26 : 9;
+//       const id = setTimeout(() => setCharIdx((c) => c + 1), speed);
+//       return () => clearTimeout(id);
+//     } else {
+//       const pause = current.pause ?? 180;
+//       const id = setTimeout(() => {
+//         setOut((o) => [...o, current]);
+//         setLineIdx((i) => i + 1);
+//         setCharIdx(0);
+//       }, pause);
+//       return () => clearTimeout(id);
+//     }
+//   }, [lineIdx, charIdx, lines]);
+
+//   const typing = lineIdx < lines.length ? lines[lineIdx].text.slice(0, charIdx) : "";
+//   const typingType = lineIdx < lines.length ? lines[lineIdx].type : null;
+//   return { out, typing, typingType, done };
+// }
+
+// /* ─────────────────────────────────────────────────────────────────────────
+//    SMALL COMPONENTS
+// ───────────────────────────────────────────────────────────────────────── */
+// function Terminal() {
+//   const lines = [
+//     { type: "prompt", text: "whoami" },
+//     { type: "out", text: "ashwin mali — software developer, ai/ml" },
+//     { type: "prompt", text: "cat focus.txt" },
+//     { type: "out", text: "react · django · tensorflow · full-stack systems" },
+//     { type: "prompt", text: "status --current" },
+//     { type: "out", text: "open to SDE internships & AI/ML roles", pause: 260 },
+//   ];
+//   const { out, typing, typingType, done } = useBoot(lines);
+
+//   return (
+//     <div className="term reveal">
+//       <div className="term-bar">
+//         <span className="term-dot" /><span className="term-dot" /><span className="term-dot" />
+//         <span className="term-title">ashwin@kolhapur: ~/portfolio</span>
+//       </div>
+//       <div className="term-body">
+//         {out.map((l, i) => (
+//           <div className="term-line" key={i}>
+//             {l.type === "prompt" ? (
+//               <><span className="term-prompt">➜ ~ </span><span className="term-key">{l.text}</span></>
+//             ) : (
+//               <span className="term-out">{l.text}</span>
+//             )}
+//           </div>
+//         ))}
+//         <div className="term-line">
+//           {typingType === "prompt" && <span className="term-prompt">➜ ~ </span>}
+//           <span className={typingType === "prompt" ? "term-key" : "term-out"}>{typing}</span>
+//           <span className="term-cursor" />
+//         </div>
+//         {done && (
+//           <div className="term-line" style={{ marginTop: ".6rem" }}>
+//             <span className="term-prompt">➜ ~ </span><span className="term-cursor" />
+//           </div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// function ActivityGraph() {
+//   // deterministic pseudo-activity, seeded so it's stable across renders
+//   const cells = Array.from({ length: 26 * 7 }, (_, i) => {
+//     const v = Math.abs(Math.sin(i * 12.9898) * 43758.5453) % 1;
+//     if (v > 0.93) return 4;
+//     if (v > 0.8) return 3;
+//     if (v > 0.62) return 2;
+//     if (v > 0.4) return 1;
+//     return 0;
+//   });
+//   return (
+//     <div className="graph-wrap reveal">
+//       <div className="graph-label">build activity — last 26 weeks</div>
+//       <div className="graph">
+//         {cells.map((lvl, i) => <i key={i} className={lvl ? `l${lvl}` : ""} />)}
+//       </div>
+//       <div className="graph-legend">
+//         less
+//         <span className="sw" style={{ background: "var(--line-soft)" }} />
+//         <span className="sw" style={{ background: "rgba(255,91,35,.28)" }} />
+//         <span className="sw" style={{ background: "rgba(255,91,35,.52)" }} />
+//         <span className="sw" style={{ background: "rgba(255,91,35,.76)" }} />
+//         <span className="sw" style={{ background: "var(--accent)" }} />
+//         more
+//       </div>
+//     </div>
+//   );
+// }
+
+// function LogEntry({ p }) {
+//   const [open, setOpen] = useState(false);
+//   return (
+//     <div className={`log-entry reveal ${open ? "open" : ""}`} onClick={() => setOpen((o) => !o)}>
+//       <div className="log-head">
+//         <span className="log-hash">{p.id}</span>
+//         <div className="log-titles">
+//           <span className="log-title">{p.title}</span>
+//           <span className="log-subtitle">{p.subtitle} · {p.date}</span>
+//         </div>
+//         <span className="log-diff"><span className="ins">+{p.insertions}</span> <span className="del">-{p.deletions}</span></span>
+//         <span className={`log-status ${p.status}`}>{p.status}</span>
+//       </div>
+//       <div className="log-body">
+//         <div className="log-body-in" onClick={(e) => e.stopPropagation()}>
+//           <p className="log-desc">{p.desc}</p>
+//           <dl className="log-case">
+//             <dt>problem</dt><dd>{p.problem}</dd>
+//             <dt>solution</dt><dd>{p.solution}</dd>
+//           </dl>
+//           <div className="log-tech">{p.tech.map((t) => <span key={t}>{t}</span>)}</div>
+//           <div className="log-links">
+//             <a href={p.github} target="_blank" rel="noreferrer">view diff ↗</a>
+//             {p.live && <a href={p.live} target="_blank" rel="noreferrer">live build ↗</a>}
+//           </div>
+//         </div>
+//       </div>
+//       <div style={{ padding: "0 1.25rem .8rem", display: open ? "none" : "block" }}>
+//         <span className="log-toggle">click to expand case study</span>
+//       </div>
+//     </div>
+//   );
+// }
+
+// /* ─────────────────────────────────────────────────────────────────────────
+//    APP
+// ───────────────────────────────────────────────────────────────────────── */
+// export default function App() {
+//   useReveal();
+//   const showTop = useScrollTop();
+//   const clock = useClock();
+
+//   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+//   const timeStr = clock.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: false });
+
+//   return (
+//     <>
+//       <style>{css}</style>
+
+//       {/* top status bar */}
+//       <div className="topbar">
+//         <div className="topbar-left">
+//           <span><span className="tb-dot" />online</span>
+//           <span className="dim">branch: main</span>
+//           <span className="dim">Kolhapur, IN</span>
+//         </div>
+//         <div className="topbar-right">
+//           <span className="dim">UTF-8</span>
+//           <span>{timeStr} IST</span>
+//         </div>
+//       </div>
+
+//       {/* nav */}
+//       <nav className="nav">
+//         <div className="nav-inner">
+//           {NAV.map((n) => (
+//             <button className="nav-tab" key={n.id} onClick={() => go(n.id)}>{n.label}</button>
+//           ))}
+//           <div className="nav-spacer" />
+//           <a className="nav-cta" href={RESUME} target="_blank" rel="noreferrer">↓ resume.pdf</a>
+//         </div>
+//       </nav>
+
+//       {/* hero */}
+//       <section className="hero" id="hero">
+//         <div className="wrap hero-grid">
+//           <div>
+//             <div className="eyebrow">CSE undergrad · AI-ML · full-stack</div>
+//             <h1 className="hero-title">
+//               Ashwin Mali builds<br /><em>production-grade</em> software.
+//             </h1>
+//             <p className="hero-desc">{DATA.bio}</p>
+//             <div className="hero-actions">
+//               <button className="btn btn-fill" onClick={() => go("projects")}>view projects/</button>
+//               <a className="btn" href={RESUME} target="_blank" rel="noreferrer">download resume</a>
+//             </div>
+//             <div className="hero-socials">
+//               <a href={DATA.github} target="_blank" rel="noreferrer">github</a>
+//               <a href={DATA.linkedin} target="_blank" rel="noreferrer">linkedin</a>
+//               <a href={DATA.leetcode} target="_blank" rel="noreferrer">leetcode</a>
+//               <a href={`mailto:${DATA.email}`}>email</a>
+//             </div>
+//           </div>
+//           <Terminal />
+//         </div>
+//       </section>
+
+//       {/* about */}
+//       <section className="section" id="about">
+//         <div className="wrap">
+//           <div className="sec-head reveal">
+//             <div>
+//               <div className="sec-tag">01 · about.md</div>
+//               <h2 className="sec-title">Engineering at the <em>intersection</em> of web & AI</h2>
+//             </div>
+//           </div>
+//           <div className="about-grid">
+//             <div className="about-copy reveal">
+//               <p>I'm <strong>Ashwin Mali</strong>, a B.Tech student specialising in <strong>Computer Science (AI-ML)</strong> at D.Y. Patil College of Engineering & Technology, Kolhapur.</p>
+//               <p>I pair algorithmic fundamentals with hands-on engineering — <strong>React front ends</strong>, <strong>Django APIs</strong>, and <strong>RNN classifiers</strong> that actually reach production.</p>
+//               <p>Ranked <strong>top 15,000 of 100,000+</strong> in Google Big Code 2026, with 250+ DSA problems solved and a term leading the Automation & Robotics Department as President.</p>
+//               <div className="hero-actions" style={{ marginTop: "1.5rem" }}>
+//                 <a className="btn btn-fill" href={`mailto:${DATA.email}`}>email me</a>
+//                 <a className="btn" href={RESUME} target="_blank" rel="noreferrer">resume</a>
+//               </div>
+//             </div>
+//             <div className="reveal">
+//               <div className="edu-list">
+//                 {DATA.education.map((e) => (
+//                   <div className="edu-row" key={e.degree}>
+//                     <div className="edu-deg">{e.degree}</div>
+//                     <div className="edu-school">{e.school}</div>
+//                     <div className="edu-meta"><span>{e.year}</span><span className="score">{e.score}</span></div>
+//                   </div>
+//                 ))}
+//               </div>
+//               <div className="learning">
+//                 <div className="learning-label">currently learning</div>
+//                 <div className="pill-row">{DATA.learning.map((t) => <span className="pill" key={t}>{t}</span>)}</div>
+//               </div>
+//             </div>
+//           </div>
+
+//           <div className="checks reveal">
+//             {DATA.checks.map((c) => (
+//               <div className="check-row" key={c.name}>
+//                 <span className="check-mark">✓</span>
+//                 <span className="check-name">{c.name}</span>
+//                 <span className="check-detail">{c.detail}</span>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* skills */}
+//       <section className="section" id="skills">
+//         <div className="wrap">
+//           <div className="sec-head reveal">
+//             <div>
+//               <div className="sec-tag">02 · requirements.txt</div>
+//               <h2 className="sec-title">What I <em>build</em> with</h2>
+//             </div>
+//           </div>
+
+//           <div className="reqs reveal">
+//             <div className="req-head"># confidence score reflects real project delivery, not self-rating</div>
+//             {DATA.deps.map((d) => (
+//               <div className="req-row" key={d.name}>
+//                 <span className="req-name">
+//                   {d.name}<span className="op">&gt;=</span>
+//                   <span className="req-version">{d.version}</span>
+//                   <span className="req-note">{d.note}</span>
+//                 </span>
+//                 <span style={{ color: "var(--faint)" }}>ok</span>
+//               </div>
+//             ))}
+//           </div>
+
+//           <div className="stack-grid">
+//             {Object.entries(DATA.stack).map(([cat, tags]) => (
+//               <div className="stack-cell reveal" key={cat}>
+//                 <div className="stack-cat">{cat}</div>
+//                 <div className="stack-tags">{tags.map((t) => <span className="stack-tag" key={t}>{t}</span>)}</div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* projects */}
+//       <section className="section" id="projects">
+//         <div className="wrap">
+//           <div className="sec-head reveal">
+//             <div>
+//               <div className="sec-tag">03 · git log --oneline</div>
+//               <h2 className="sec-title">Selected <em>commits</em></h2>
+//             </div>
+//           </div>
+//           {DATA.projects.map((p) => <LogEntry key={p.id} p={p} />)}
+//         </div>
+//       </section>
+
+//       {/* log / activity + profiles + certs */}
+//       <section className="section" id="log">
+//         <div className="wrap">
+//           <div className="sec-head reveal">
+//             <div>
+//               <div className="sec-tag">04 · log.json</div>
+//               <h2 className="sec-title">Practice & <em>credentials</em></h2>
+//             </div>
+//           </div>
+
+//           <ActivityGraph />
+
+//           <div className="graph-label" style={{ marginTop: "3rem" }}>coding profiles</div>
+//           <div className="two-col reveal">
+//             {DATA.profiles.map((p) => (
+//               <a className="profile-row" href={p.href} target="_blank" rel="noreferrer" key={p.name}>
+//                 <div>
+//                   <div className="profile-name">{p.name}</div>
+//                   <div className="profile-handle">@{p.handle}</div>
+//                 </div>
+//                 <span className="profile-stat">{p.stat}</span>
+//               </a>
+//             ))}
+//           </div>
+
+//           <div className="graph-label" style={{ marginTop: "3rem" }}>certifications</div>
+//           <div className="two-col reveal">
+//             {DATA.certs.map((c) => (
+//               <div className="cert-row" key={c.name}>
+//                 <div>
+//                   <div className="cert-name">{c.name}</div>
+//                   <div className="cert-desc">{c.desc}</div>
+//                 </div>
+//                 <div className="cert-meta">
+//                   <div className="cert-issuer">{c.issuer}</div>
+//                   <div className="cert-date">{c.date}</div>
+//                   <a className="cert-verify" href={c.verify} target="_blank" rel="noreferrer">verify ↗</a>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* contact */}
+//       <section className="section" id="contact">
+//         <div className="wrap">
+//           <div className="sec-tag reveal">05 · contact.sh</div>
+//           <div className="contact-term reveal">
+//             <div className="contact-lead">Let's <em>ship</em><br />something together.</div>
+//             <p className="contact-body">
+//               Open to SDE internships, full-stack roles, and AI/ML engineering opportunities.
+//               Reach out directly or run the command below.
+//             </p>
+//           </div>
+//           <div className="contact-links reveal">
+//             <a className="c-row" href={`mailto:${DATA.email}`}>
+//               <div><div className="c-row-name">Email</div><div className="c-row-url">{DATA.email}</div></div>
+//               <span className="c-arrow">↗</span>
+//             </a>
+//             <a className="c-row" href={DATA.github} target="_blank" rel="noreferrer">
+//               <div><div className="c-row-name">GitHub</div><div className="c-row-url">github.com/{DATA.handle}</div></div>
+//               <span className="c-arrow">↗</span>
+//             </a>
+//             <a className="c-row" href={DATA.linkedin} target="_blank" rel="noreferrer">
+//               <div><div className="c-row-name">LinkedIn</div><div className="c-row-url">linkedin.com/in/ashwin-mali-697348286</div></div>
+//               <span className="c-arrow">↗</span>
+//             </a>
+//             <a className="c-row" href={DATA.portfolio} target="_blank" rel="noreferrer">
+//               <div><div className="c-row-name">Portfolio</div><div className="c-row-url">my-portfolio-54ju.onrender.com</div></div>
+//               <span className="c-arrow">↗</span>
+//             </a>
+//             <a className="c-row" href={RESUME} target="_blank" rel="noreferrer">
+//               <div><div className="c-row-name">Resume</div><div className="c-row-url">view / download PDF</div></div>
+//               <span className="c-arrow">↗</span>
+//             </a>
+//           </div>
+//         </div>
+//       </section>
+
+//       <footer>
+//         <div className="wrap footer-inner">
+//           <span>© 2026 Ashwin Mali</span>
+//           <span>built with react · <a href={DATA.github} target="_blank" rel="noreferrer">view source ↗</a></span>
+//           <span>{DATA.location}</span>
+//         </div>
+//       </footer>
+
+//       <button className={`totop ${showTop ? "show" : ""}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>↑</button>
+//     </>
+//   );
+// }
+
+
 import { useRef, useState, useEffect } from "react";
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -1157,12 +1933,33 @@ const css = `
   --code-bg:#16180F;
   --code-ink:#DCE0C8;
   --code-line: rgba(220,224,200,.14);
+  --nav-bg: rgba(242,242,236,.92);
+  --shadow: rgba(27,29,24,.22);
   --display:'Fraunces',serif;
   --body:'IBM Plex Sans',sans-serif;
   --mono:'IBM Plex Mono',monospace;
 }
+body.dark{
+  --paper:#131410;
+  --paper2:#1B1C15;
+  --surface:#1C1D17;
+  --ink:#ECEBE0;
+  --muted:#A3A695;
+  --faint:#6C7061;
+  --line: rgba(236,235,224,.14);
+  --line-soft: rgba(236,235,224,.07);
+  --accent:#FF6B3C;
+  --accent-ink:#FFB98C;
+  --cobalt:#7C9CFF;
+  --good:#5FBF87;
+  --code-bg:#0B0C08;
+  --code-ink:#DCE0C8;
+  --code-line: rgba(220,224,200,.14);
+  --nav-bg: rgba(19,20,16,.9);
+  --shadow: rgba(0,0,0,.5);
+}
 html{scroll-behavior:smooth;}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.6;transition:background .25s ease,color .25s ease;}
 ::selection{background:var(--accent);color:#fff;}
 ::-webkit-scrollbar{width:9px;}
 ::-webkit-scrollbar-track{background:var(--paper);}
@@ -1178,9 +1975,11 @@ button{font-family:inherit;}
 .tb-dot{width:6px;height:6px;border-radius:50%;background:var(--good);display:inline-block;margin-right:.4rem;animation:blink 2.4s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
 .topbar span.dim{color:var(--faint);}
+.theme-toggle{font-family:var(--mono);font-size:.68rem;color:var(--code-ink);background:none;border:1px solid var(--code-line);padding:.2rem .55rem;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:all .15s;}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent);}
 
 /* ── nav ── */
-.nav{position:fixed;top:26px;left:0;right:0;z-index:390;background:rgba(242,242,236,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+.nav{position:fixed;top:26px;left:0;right:0;z-index:390;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:background .25s ease;}
 .nav-inner{max-width:1040px;margin:0 auto;padding:0 2.5rem;display:flex;align-items:stretch;overflow-x:auto;}
 .nav-tab{font-family:var(--mono);font-size:.72rem;color:var(--muted);background:none;border:none;border-right:1px solid var(--line-soft);padding:.85rem 1.1rem;cursor:pointer;white-space:nowrap;transition:color .15s,background .15s;position:relative;}
 .nav-tab:hover{color:var(--ink);background:var(--paper2);}
@@ -1207,7 +2006,7 @@ button{font-family:inherit;}
 .hero-socials a{text-decoration:none;color:var(--muted);border-bottom:1px solid transparent;padding-bottom:1px;}
 .hero-socials a:hover{color:var(--accent-ink);border-color:var(--accent);}
 
-.term{background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:.78rem;border-radius:2px;overflow:hidden;box-shadow:0 24px 60px rgba(27,29,24,.22);}
+.term{background:var(--code-bg);color:var(--code-ink);font-family:var(--mono);font-size:.78rem;border-radius:2px;overflow:hidden;box-shadow:0 24px 60px var(--shadow);}
 .term-bar{display:flex;align-items:center;gap:.4rem;padding:.65rem .9rem;border-bottom:1px solid var(--code-line);}
 .term-dot{width:9px;height:9px;border-radius:50%;background:rgba(220,224,200,.25);}
 .term-title{margin-left:.5rem;color:var(--faint);font-size:.68rem;}
@@ -1395,6 +2194,19 @@ function useScrollTop() {
   return show;
 }
 
+function useTheme() {
+  const [dark, setDark] = useState(() => {
+    if (typeof window !== "undefined" && window.matchMedia) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return false;
+  });
+  useEffect(() => {
+    document.body.classList.toggle("dark", dark);
+  }, [dark]);
+  return { dark, toggle: () => setDark((d) => !d) };
+}
+
 function useClock() {
   const [t, setT] = useState(() => new Date());
   useEffect(() => {
@@ -1549,6 +2361,7 @@ export default function App() {
   useReveal();
   const showTop = useScrollTop();
   const clock = useClock();
+  const { dark, toggle } = useTheme();
 
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -1568,6 +2381,9 @@ export default function App() {
         <div className="topbar-right">
           <span className="dim">UTF-8</span>
           <span>{timeStr} IST</span>
+          <button className="theme-toggle" onClick={toggle} title="Toggle theme">
+            {dark ? "☀ light" : "☾ dark"}
+          </button>
         </div>
       </div>
 
@@ -1794,3 +2610,6 @@ export default function App() {
     </>
   );
 }
+
+
+
